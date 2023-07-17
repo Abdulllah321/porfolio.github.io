@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="shortcut icon" type="image/png" href="image/me.jpeg">
+    <script src="https://kit.fontawesome.com/236d06e6d8.js" crossorigin="anonymous"></script>
+    <script src="jquery-3.7.0.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Preloader element -->
+    <div id="preloader">
+        <video autoplay muted loop id="video-background">
+            <source src="image/video.mp4" type="video/mp4">
+        </video>
+        <div id="loader">
+            <span class="a">A</span>
+            <span class="b">b</span>
+            <span class="a">d</span>
+            <span class="b">u</span>
+            <span class="a">l</span>
+            <span class="b">l</span>
+            <span class="a">a</span>
+            <span class="b">h</span>
+        </div>
+    </div>
+
+    <!-- --------video----------- -->
+    <script>
+        var video = document.getElementById("video-background");
+video.playbackRate = 3;
+    </script>
+
+
+    <!-- JavaScript code to show/hide the preloader -->
+    <script>
+        document.onreadystatechange = function () {
+            var state = document.readyState;
+            if (state == 'interactive' || state == 'complete') {
+                setTimeout(function () {
+                    document.getElementById('preloader').style.display = 'none';
+                }, 5000);
+            } else {
+                document.getElementById('preloader').style.display = 'block';
+            }
+        };
+    </script>
+</body>
+<!-- ----------------------header-------- -->
+<header id="header">
+    <div class="container">
+        <nav>
+            <img src="image/LOGO.png" class="logo" data-aos="fade-down" data-aos-duration="100">
+            <ul id="sidemenu" data-aos="fade-down" data-aos-duration="100">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+
+            <input type="checkbox" id="switch" name="theme" /><label for="switch" data-aos="fade">Toggle</label>
+            <i class="fas fa-bars" onclick="openmenu()" data-aos="fade-down" data-aos-duration="100"></i>
+        </nav>
+        <div class="header-text" data-aos="fade-right" data-aos-delay="200">
+            <h1>Hi, My Name <span>Abdullah</span><br>From Pakistan</h1>
+            <span id="element"></span>
+        </div>
+    </div>
+</header>
+<script>
+    // Get the checkbox input element and the header element
+    const toggle = document.getElementById('switch');
+    const header = document.getElementById('header');
+
+    // Add an event listener to the checkbox for when it is toggled
+    toggle.addEventListener('change', () => {
+        // If the checkbox is checked, add the 'new-background' class to the header element
+        if (toggle.checked) {
+            header.classList.add('new-background');
+            // If the checkbox is not checked, remove the 'new-background' class from the header element
+        } else {
+            header.classList.remove('new-background');
+        }
+    });
+</script>
+
+<!-- ----------darktheme and light theme------------------ -->
+<script>
+    var dark = document.getElementById("switch");
+    dark.onclick = function () {
+        document.body.classList.toggle("dark-theme");
+    }
+</script>
+
+<!-- --------navbar-toggle----------------- -->
+<script>
+    const modeToggle = document.querySelector('#mode-toggle');
+
+    modeToggle.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+    });
+</script>
+<!-- typedjs -->
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<div id="element"></div>
+
+<script>
+    setTimeout(function () {
+        var typed = new Typed('#element', {
+            strings: ['I am Web Designer', 'I am UI/UX Designer', 'I am Web Developer'],
+            typeSpeed: 50,
+        });
+    }, 6000);
+</script>
+
+<!-- -----------------------toggle navbar------------------------- -->
+
+<script>
+    var sidemenu = document.getElementById('sidemenu')
+
+    function openmenu() {
+        sidemenu.style.right = '0';
+    }
+    function closemenu() {
+        sidemenu.style.right = '-200px';
+    }
+</script>
+<!------------------About-------------------------->
+<section id="about" data-aos="zoom-in-up" data-aos-duration="200">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1" data-aos="fade-right" data-aos-delay="200">
+                <img src="image/portfolio.png">
+            </div>
+            <div class="about-col-2">
+                <h1 data-aos="fade-down" data-aos-delay="250">About Me</h1>
+                <p data-aos="fade-down" data-aos-delay="250">
+
+                    "Welcome to my portfolio! My name is Abdullah Sufyan, and I am a skilled web developer and UI/UX
+                    designer with a passion for creating beautiful, functional websites. With 1 year of experience
+                    in the industry, I have had the opportunity to work on
+                    a variety of projects, ranging from personal blogs to e-commerce websites and enterprise-level
+                    applications. <br>
+
+                    In my portfolio, you'll find a showcase of some of my best work. Each project is crafted with
+                    care and attention to detail, using the latest web technologies and design trends to ensure a
+                    seamless and enjoyable user experience. Whether you're looking for a stunning visual design,
+                    intuitive navigation, or powerful functionality, I have the skills and expertise to bring your
+                    vision to life.<br>
+
+                    Take a look around and see what I can do. If you're interested in working with me, feel free to
+                    get in touch and let's discuss your project. I look forward to hearing from you!"
+                </p>
+                <div class="tab">
+                    <ul class="tab-titles" id="tabs" data-aos="zoom-in" data-aos-delay="300">
+                        <p class="tab-links active-link" onclick="opentab(event,'skills')" data-aos="zoon-in-top">
+                            Skills</p>
+                        <p class="tab-links" onclick="opentab(event,'experience')" data-aos="zoon-in-top"> Experience
+                        </p>
+                        <p class="tab-links" onclick="opentab(event,'education')" data-aos="zoon-in-top"> Education</p>
+                    </ul>
+                    <!-- ------------------skills-------------------------->
+                    <div class="tab-content active-tab" id="skills" data-aos="zoom-in" data-aos-delay="300">
+                        <ul>
+                            <li><span>UI/UX designer</span><br>Designing Web app interfaces</li>
+                            <li><span>Video Editor</span><br>Edit Video perfectly & create 2d animation</li>
+                            <li><span>Web Developer</span><br>Can Design website interfece through HTML,CSS and
+                                javascript</li>
+                        </ul>
+                    </div>
+                    <!-- ---------------------------expirience------------------------->
+                    <div class="tab-content" id="experience" data-aos="zoom-in" data-aos-delay="300">
+                        <ul>
+                            <li><span>2023 - Current</span><br>UI/UX Design learning at Aptech Learning Centter</li>
+                            <li><span>2021 - 2022</span><br>Edit Video perfectly & create 2d animation</li>
+                            <li><span>2023 - Current</span><br>Learning backend website Designing at Aptech Learning
+                                Center</li>
+                        </ul>
+                    </div>
+                    <!-- -----------education--------------- -->
+                    <div class="tab-content" id="education" data-aos="zoom-in" data-aos-delay="300">
+                        <ul id="tab-3">
+                            <li><span>2022 - Current</span><br>Intermediate</li>
+                            <li><span>2022</span><br>I am taking courses at Aptech to improve my skills in computer
+                                field.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- --------------------about-js------------------------ -->
+<script>
+    function opentab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-links");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList = tablinks[i].className.replace("active-link", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.classList.add("active-link");
+    }
+</script>
+
+<!-- ---------------------services---------------- -->
+<section id="services">
+    <div class="container">
+        <h1 class="sub-title" data-aos="fade-right" data-aos-delay="200">My Services</h1>
+        <div class="services-list">
+            <div class="list1 list" data-aos="zoom-in-right" data-aos-delay="500">
+                <i class="fa-solid fa-code"></i>
+                <h2>Web design</h2>
+                <p>As a web designer, I create visually appealing and user-friendly websites that meet my clients'
+                    business objectives. I start by<span id="dots1">...</span><span id="more1">understanding their
+                        needs and target audience, and develop a design concept that is refined until it meets their
+                        vision. I then code the website using HTML, CSS, and JavaScript, and thoroughly test it to
+                        ensure it looks and functions perfectly. My goal is to create websites that drive business
+                        growth and success.</span></p>
+                <span onclick="myFunction1()" id="myBtn1" class="learn-more-btn">Read more</span>
+
+            </div>
+            <div class="list2 list" data-aos="zoom-in-down" data-aos-delay="500">
+                <i class="fa-solid fa-crop"></i>
+                <h2>UI/UX Designer</h2>
+                <p>I am a UI/UX designer focused on creating visually appealing and user-friendly digital
+                    experiences. I
+                    work to understand my clients<span id="dots2">...</span><span id="more2"> needs and
+                        their target audience,
+                        and then develop wireframes and
+                        prototypes to test different design concepts. I pay close attention to details such as
+                        color,
+                        typography, and layout, and work closely with developers to ensure a smooth and seamless
+                        user
+                        experience. My goal is to create digital experiences that provide real value to users and
+                        help
+                        my
+                        clients achieve their goals.</span></p>
+                <span onclick="myFunction2()" id="myBtn2" class="learn-more-btn">Read more</span>
+            </div>
+
+
+            <div class="list3 list" data-aos="zoom-in-left" data-aos-delay="500">
+                <i class="fa-solid fa-video"></i>
+                <h2>Video Editor</h2>
+                <p>IAs a video editor, I create compelling and visually engaging video content for individuals and
+                    businesses. I review raw footage, sele<span id="dots3">...</span><span id="more3"> ct the
+                        best shots, and use
+                        editing techniques to create a
+                        polished final product. My goal is to create videos that effectively communicate my clients'
+                        message
+                        and align with their brand.</span></p>
+                <span onclick="myFunction3()" id="myBtn3" class="learn-more-btn">Read more</span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ---------------learn more1---------------- -->
+<script>
+    function myFunction1() {
+        var dots1 = document.getElementById("dots1");
+        var moreText1 = document.getElementById("more1");
+        var btnText1 = document.getElementById("myBtn1");
+
+        if (dots1.style.display === "none") {
+            dots1.style.display = "inline";
+            btnText1.innerHTML = "Read more";
+            moreText1.style.display = "none";
+        } else {
+            dots1.style.display = "none";
+            btnText1.innerHTML = "Read less";
+            moreText1.style.display = "inline";
+        }
+    }
+</script>
+<!-- ---------------learn more2---------------- -->
+<script>
+    function myFunction2() {
+        var dots = document.getElementById("dots2");
+        var moreText = document.getElementById("more2");
+        var btnText = document.getElementById("myBtn2");
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+        }
+    }
+</script>
+<!-- ---------------learn more3---------------- -->
+<script>
+    function myFunction3() {
+        var dots = document.getElementById("dots3");
+        var moreText = document.getElementById("more3");
+        var btnText = document.getElementById("myBtn3");
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+        }
+    }
+</script>
+
+<!-- -------------------------portfolio------------------- -->
+
+<section id="portfolio">
+    <div class="container">
+        <h1 class="sub-title" data-aos="fade-right" data-aos-delay="200">My Work</h1>
+        <div class="work-list" data-aos="fade-down" data-aos-delay="300">
+            <div class="work" data-aos="fade" data-aos-delay="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="100" data-aos-duration="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="100" data-aos-duration="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="100" data-aos-duration="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="100" data-aos-duration="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="100" data-aos-duration="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="100" data-aos-duration="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="100" data-aos-duration="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="100" data-aos-duration="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work" data-aos="fade" data-aos-delay="100" data-aos-duration="500">
+                <img src="image/thumbnail.jpeg">
+                <div class="layer">
+                    <h3>E-commerce Website</h3>
+                    <p>This is my first project website which is fully responsive</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="load-more" id="load-more" data-aos="fade" data-aos-delay="700">Load More</a>
+    </div>
+</section>
+
+<!-- ----------------------load-more-js---------------------------- -->
+
+<script>
+
+    $(document).ready(function () {
+        $('.work').slice(0, 3).show();
+        $('#load-more').on('click', function () {
+            $('.work:hidden').slice(0, 3).slideDown('medium')
+            if ($('.work:hidden').length == 0) {
+                $(this).fadeOut('medium')
+            }
+
+            $('html,body').animate({
+                scrollTop: $(this).offset.top
+            }, 2500);
+            return false;
+        });
+    });
+    $(document).on('click', function (event) {
+        // Only execute if the click is outside of the 'work' items
+        if (!$(event.target).closest('.work').length) {
+            // Hide all items except the first three
+            $('.work').slice(3).hide();
+
+            // Show the 'Load More' button if there are more than three items
+            if ($('.work').length > 3) {
+                $('#load-more').fadeIn('medium');
+            }
+        }
+    });
+</script>
+
+
+<!-- -----------------------contact-------------------- -->
+
+<section id="contact">
+    <div class="container">
+        <div class="contact">
+            <div class="contect-left">
+                <h1 class="sub-title" data-aos="fade-right" data-aos-delay="200">Cotact Me</h1>
+                <p data-aos="fade-right" data-aos-delay="500"><i
+                        class="fa-solid fa-paper-plane"></i>abdullahsufyan2007@gmail.com </p>
+                <p data-aos="fade-right" data-aos-delay="500"><i class="fa-solid fa-phone"></i>+92 323 3297166</p>
+                <div class="social-icon">
+                    <a href="https://facebook.com/" data-aos="zoom-out" data-aos-delay="700"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://twitter.com/" data-aos="zoom-out" data-aos-delay="700"><i
+                            class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/" data-aos="zoom-out" data-aos-delay="700"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://linkedin.com/" data-aos="zoom-out" data-aos-delay="700"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="image/cv.pdf" download  class="cv" data-aos="zoom-in" data-aos-delay="500">Download cv</a>
+            </div>
+            <div class="contect-right">
+                <form name="submit-to-google-sheet" data-aos="fade-left" data-aos-delay="200">
+                    <input type="text" name="Name" placeholder="Your Name" required data-aos="fade"
+                        data-aos-delay="400">
+                    <input type="email" name="Email" placeholder="Your email" required data-aos="fade"
+                        data-aos-delay="600">
+                    <textarea name="Message" placeholder="Your Message" rows="6" data-aos="fade"
+                        data-aos-delay="800"></textarea>
+                    <button type="submit" class="cv btn" data-aos-delay="800">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ---------------------------form------------------------- -->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx0DqAnwJqcXlK5oFJ7bOCXCJVN1gO1ZX0VkPrjN1xIU6ZXRagtdzDcMrGBiXnBPGHiQw/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const msg = document.getElementById("msg");
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                msg.innerHTML = "Message Sent Successfully";
+                setTimeout(function () {
+                    msg.innerHTML = "";
+                }, 5000);
+                form.reset(); // add this line to reset form fields
+            })
+            .catch(error => console.error('Error!', error.message));
+    });
+</script>
+
+
+<div class="copyright">
+    Copyright © Made <i class="fa-solid fa-heart"></i> by Abdullah Sufyan
+</div>
+
+<!-- ---------------scroll-button------------------ -->
+<div id="scrollTop">
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+</div>
+
+<script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            var myBtn = document.getElementById("myBtn");
+            myBtn.style.display = "block";
+            myBtn.style.opacity = "0";
+            setTimeout(function () { myBtn.style.opacity = "1"; }, 50);
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+
+<!-- ----------animation------------- -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+
+    AOS.init({
+        offset: 300,
+        duration: 1000
+    });
+</script>
+
+</body>
+
+</html>
